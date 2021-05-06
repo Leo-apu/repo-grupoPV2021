@@ -33,12 +33,10 @@ public class ProductoServiceImpl implements IProductoService {
 	@Override
 	public Producto getUltimoProducto() {
 		// TODO Auto-generated method stub
-		if(productoList.isEmpty()) {
-			return producto;
-		}else {
+		
 			Producto pr = productoList.get(productoList.size()-1);
 			return pr;
-		}
+
 	}
 	
 	@Override
