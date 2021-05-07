@@ -6,6 +6,6 @@ import ar.edu.unju.fi.tp4.model.Compra;
 
 public interface ICompraService {
 	public void guardarCompra(Compra compra);
-	public List<Compra> getAllCompra();
+	public List<Compra> obtenerCompras();
 
 }
