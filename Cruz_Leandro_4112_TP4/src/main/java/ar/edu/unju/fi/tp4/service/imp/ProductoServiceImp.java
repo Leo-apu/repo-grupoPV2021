@@ -32,7 +32,7 @@ public class ProductoServiceImp implements IProductoService {
 
 	@Override
 	public Producto getUltimoProducto() {
-		// TODO Auto-generated method stub
+
 		if (productoList.isEmpty()) {
 			return producto;
 			
@@ -40,7 +40,7 @@ public class ProductoServiceImp implements IProductoService {
 			Producto pr = productoList.get(productoList.size()-1);
 			return pr;
 		}
-		
+
 	}
 	
 	
