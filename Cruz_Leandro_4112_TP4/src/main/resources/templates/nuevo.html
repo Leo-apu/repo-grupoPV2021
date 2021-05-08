@@ -18,7 +18,7 @@
 				<div class="row">
 				   <div class="col-lg-12">
 				     <div class="card shadows-lg p-3 mb-5 bg-white">
-				        <div class="card-header bg-primary text-white text-center">FORMULARIO-PRODUCTO</div>
+				        <div class="card-header bg-danger text-white text-center">FORMULARIO-PRODUCTO</div>
 				        <div class="card-body">
 				        	<form th:action="@{/producto/guardar}" th:object="${producto}" method="post">
 				        		<div class="form-group">
@@ -47,11 +47,11 @@
 								th:field="*{stock}">
 							   </div>
 							   
-							   <button class="btn btn-primary btn-block" type="submit" >Guardar</button>
+							   <button class="btn btn-danger btn-block" type="submit" >Guardar</button>
 				        	</form>
 				        	<div class="container my-2 text-center">
-						    <a href="/producto/ultimo" class="btn btn-primary">Ver ultimo producto guardado</a>
-						    <a href="/producto/lista" class="btn btn-primary">Ver todos los producto</a>				        	
+						    <a href="/producto/ultimo" class="btn btn-danger">Ver ultimo producto guardado</a>
+						    <a href="/producto/lista" class="btn btn-danger">Ver todos los producto</a>				        	
 				        	</div>
 				        </div>
 				     </div>
