@@ -49,6 +49,12 @@ public class ProductoServiceImp implements IProductoService {
 		// TODO Auto-generated method stub
 		return this.productoList;
 	}
+
+	@Override
+	public Producto getProducto() {
+		// TODO Auto-generated method stub
+		return producto;
+	}
 	
 
 }
