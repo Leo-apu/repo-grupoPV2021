@@ -38,7 +38,7 @@ public class CompraServiceImp implements ICompraService {
 	public void generarTablaCompra() {
 		// TODO Auto-generated method stub
 		compras=TablaCompra.listCompras;
-		compras.add(new Compra(0, null, 0, 0));
+		compras.add(new Compra(0, null, 0));
 		LOGGER.info("RESULT : CREA LISTA DE CLIENTES");
 	}
 
