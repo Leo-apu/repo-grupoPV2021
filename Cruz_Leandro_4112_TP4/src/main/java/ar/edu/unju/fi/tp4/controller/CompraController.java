@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import ar.edu.unju.fi.tp4.model.Compra;
 import ar.edu.unju.fi.tp4.service.ICompraService;
+import ar.edu.unju.fi.tp4.service.IProductoService;
 
 @Controller
 public class CompraController {
@@ -23,6 +24,8 @@ public class CompraController {
 	
 	@Autowired
 	private ICompraService compraService;
+	@Autowired
+	private IProductoService productoService;
 	
 	private static final Log LOGGER = LogFactory.getLog(CompraController.class);
 	
@@ -32,6 +35,7 @@ public class CompraController {
 		LOGGER.info("METHOD : getCompraPage()");
 		LOGGER.info("RESULT : VISUALIZA LA PAGINA compras.html");
 		model.addAttribute("compra",compra);
+		model.addAttribute("producto",productoService.getProducto());
 		return "compra";
 	}
 	

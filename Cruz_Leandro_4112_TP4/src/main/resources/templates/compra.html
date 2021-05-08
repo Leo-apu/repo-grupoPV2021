@@ -21,26 +21,36 @@
 				     <div class="card shadows-lg p-3 mb-5 bg-white">
 				        <div class="card-header bg-danger text-white text-center">FORMULARIO-COMPRA</div>
 				        <div class="card-body">
-				        	<form method="post">
+				        	<form th:action="@{/compra/guardar}" th:object="${compra}" method="post">
 							   <div class="form-group">
 							    <label for="id">ID </label>
-								<input id="id" class="form-control" type="number" name="id" placeholder="Ingrese ID"
+								<input th:field="*{id}" id="id" class="form-control" type="number" name="id" placeholder="Ingrese ID"
 								>
 							   </div>
-							   <div class="form-group">
+							   <div th:object="${producto}" class="form-group">
 							    <label for="producto">Producto</label>
-								<div> Espacio para el select</div>
+								
+										<div class="form-group">
+									    <label for="nombre">Nombre del Producto</label>
+										<input id="nombre" class="form-control" type="text" name="nombre" placeholder="Ingrese el nombre"
+										th:field="*{nombre}">
+									   </div>
+									   <div class="form-group">
+									    <label for="precio">Precio del Producto</label>
+										<input id="precio" class="form-control" type="number" name="precio" placeholder="Ingrese el precio"
+										th:field="*{precio}">
+									   </div>
+									   <div class="form-group">
+									    <label for="marca">Marca del Producto</label>
+										<input id="marca" class="form-control" type="text" name="marca" placeholder="Ingrese la marca"
+										th:field="*{marca}">
+									   </div>
+							
 							   </div>
 	
 							   <div class="form-group">
-							    <label for="cantidad">Stock</label>
-								<input id="cantidad" class="form-control" type="number" name="cantidad" placeholder="Ingrese cantidad"
-								>
-							   </div>
-							   
-							   <div class="form-group">
-							    <label for="total">Total</label>
-								<input id="total" class="form-control" type="number" name="total" placeholder="Ingrese el total"
+							    <label for="cantidad">Cantidad</label>
+								<input th:field="*{cantidad}" id="cantidad" class="form-control" type="number" name="cantidad" placeholder="Ingrese cantidad"
 								>
 							   </div>
 							   

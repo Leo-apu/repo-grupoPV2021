@@ -50,6 +50,7 @@ public class Producto {
 		return "Producto [Codigo= " + codigo + "\nNombre= " + nombre + "\nPrecio= " + precio + "\nMarca= " + marca
 				+ "\nStock= " + stock + "]";
 	}
-	 
+	
+	
 	
 }
