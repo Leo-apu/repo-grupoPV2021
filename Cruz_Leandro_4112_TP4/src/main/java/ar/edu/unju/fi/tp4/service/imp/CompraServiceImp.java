@@ -18,11 +18,13 @@ public class CompraServiceImp implements ICompraService {
 	@Autowired
 	@Qualifier("unaCompra")
 	Compra compra;
-	
 	@Override
 	public void guardarCompra(Compra compra) {
 		// TODO Auto-generated method stub
-		compras.add(compra);
+		if(compras==null) {
+			generarTablaCompra();
+		}
+		this.compras.add(compra);
 		LOGGER.info("METHOD: se agrego un obj compra a la lista -> "+compras.get(compras.size()-1));
 		
 	}
@@ -31,21 +33,21 @@ public class CompraServiceImp implements ICompraService {
 	public List<Compra> obtenerCompras() {
 		// TODO Auto-generated method stub
 		LOGGER.info("METHOD: mostrar obj de la lista -> "+compras.get(compras.size()-1));
-		return compras;
+		return this.compras;
 	}
 
 	@Override
 	public void generarTablaCompra() {
 		// TODO Auto-generated method stub
-		compras=TablaCompra.listCompras;
-		compras.add(new Compra(0, null, 0, 0));
+		this.compras=TablaCompra.listCompras;
+		//this.compras.add(new Compra(1, null, 0));
 		LOGGER.info("RESULT : CREA LISTA DE CLIENTES");
 	}
 
 	@Override
 	public Compra getCompra() {
 		// TODO Auto-generated method stub
-		return compra;
+		return this.compra;
 	}
 
 }
