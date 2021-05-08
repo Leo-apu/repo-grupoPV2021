@@ -9,5 +9,6 @@ public interface IClienteService {
 	public void generarTablaCLiente();
 	public void guardarCliente(Cliente cliente);
 	public List<Cliente> getAllClientes();
+	public Cliente getCliente();
 
 }
