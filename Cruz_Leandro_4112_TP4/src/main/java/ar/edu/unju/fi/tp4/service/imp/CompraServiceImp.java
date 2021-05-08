@@ -9,11 +9,12 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import ar.edu.unju.fi.tp4.model.Compra;
+import ar.edu.unju.fi.tp4.model.Producto;
 import ar.edu.unju.fi.tp4.service.ICompraService;
 import ar.edu.unju.fi.tp4.util.TablaCompra;
 @Service
 public class CompraServiceImp implements ICompraService {
-	private List<Compra> compras;
+	private List<Compra> compras=TablaCompra.listCompras;
 	private static final Log LOGGER =LogFactory.getLog(CompraServiceImp.class);
 	@Autowired
 	@Qualifier("unaCompra")
@@ -32,7 +33,7 @@ public class CompraServiceImp implements ICompraService {
 	@Override
 	public List<Compra> obtenerCompras() {
 		// TODO Auto-generated method stub
-		LOGGER.info("METHOD: mostrar obj de la lista -> "+compras.get(compras.size()-1));
+		LOGGER.info("METHOD: mostrar obj de la lista ");
 		return this.compras;
 	}
 
@@ -40,7 +41,7 @@ public class CompraServiceImp implements ICompraService {
 	public void generarTablaCompra() {
 		// TODO Auto-generated method stub
 		this.compras=TablaCompra.listCompras;
-		//this.compras.add(new Compra(1, null, 0));
+		this.compras.add(new Compra(1, new Producto(0, "Galleta", 25.6, "pepitos", 2), 3));
 		LOGGER.info("RESULT : CREA LISTA DE CLIENTES");
 	}
 

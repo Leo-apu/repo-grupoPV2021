@@ -24,12 +24,12 @@
 					         <form  th:action="@{/cliente/guardar}" th:object="${cliente}" method="post">
 								<div class="form-group">
 							 	<label for="nombreApellido">Apellido y Nombre</label>
-								<input class="form-control" type="text" id="nombreApellido" placeholder="Ingrese el apellido y nombre"
+								<input required class="form-control" type="text" id="nombreApellido" placeholder="Ingrese el apellido y nombre"
 								th:field="*{nombreApellido}">
 								</div>
 								<div class="form-group">
 								<label for="tipoDocumento">Tipo de Documento</label>
-									<select class="form-control "id="tipoDocumento" th:field="*{tipoDocumento}">
+									<select required class="form-control "id="tipoDocumento" th:field="*{tipoDocumento}">
 										<option value="" selected>Elija una opcion </option>
 										<option value="PASAPORTE"> PASAPORTE </option>
 										<option value="DNI"> DNI</option>
@@ -37,36 +37,36 @@
 								</div>
 								<div class="form-group">
 								<label for="nroDocumento">Numero de Dni</label>
-								<input class="form-control" type="number" id="nroDocumento" placeholder="Ingrese el numero de dni"
+								<input required class="form-control" type="number" id="nroDocumento" placeholder="Ingrese el numero de dni"
 								th:field="*{nroDocumento}">
 								</div>
 								<div class="form-group">
 							        <label for="email">Email</label>
-								<input class="form-control" type="email" id="email" placeholder="Ingrese el email"
+								<input required class="form-control" type="email" id="email" placeholder="Ingrese el email"
 								th:field="*{email}">
 								</div>
 								<div class="form-group">
 								<label for="password">Contraseña</label>
-								<input class="form-control" type="password" id="password" placeholder="Ingrese password"
+								<input required class="form-control" type="password" id="password" placeholder="Ingrese password"
 								th:field="*{password}"/>
 								</div>
 								<div class="form-group">
 								<label for="fechaNacimiento">Fecha de nacimiento</label>
-								<input class="form-control" type="date" id="fechaNacimiento" th:field="*{fechaNacimiento}"/>
+								<input required class="form-control" type="date" id="fechaNacimiento" th:field="*{fechaNacimiento}"/>
 								</div>
 								<div class="form-group">
 								<label for="codigoAreaTelefono">Codigo de Area</label>
-								<input class="form-control" type="number" id="codigoAreaTelefono" placeholder="Ingrese el codigo de area"
+								<input required class="form-control" type="number" id="codigoAreaTelefono" placeholder="Ingrese el codigo de area"
 								th:field="*{codigoAreaTelefono}"/>
 								</div>
 								<div class="form-group">
 								<label for="nroTelefono">Numero de telefono</label>
-								<input class="form-control" type="number" id="nroTelefono" placeholder="Ingrese el numero de telefono"
+								<input required class="form-control" type="number" id="nroTelefono" placeholder="Ingrese el numero de telefono"
 								th:field="*{nroTelefono}"/>
 								</div>
 								<div class="form-group">
 								<label for="fechaUltimaCompra">Fecha de ultima compra</label>
-								<input class="form-control" type="date" id="fechaUltimaCompra" th:field="*{fechaUltimaCompra}"/>
+								<input required class="form-control" type="date" id="fechaUltimaCompra" th:field="*{fechaUltimaCompra}"/>
 								</div>
 								
 					            <button class="btn btn-danger btn-block" type="submit" >Guardar</button>
