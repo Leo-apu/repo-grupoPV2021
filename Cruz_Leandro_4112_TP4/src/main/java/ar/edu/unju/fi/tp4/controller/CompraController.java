@@ -35,7 +35,7 @@ public class CompraController {
 		LOGGER.info("CONTROLLER : CompraController with /guardarCompra post method");
 		compraService.guardarCompra(unaCompra);
 		LOGGER.info("RESULT : VISUALIZA LA PAGINA resultadoCompra.html ");
-		return "resultadoCompra";
+		return "compra";
 	}
 
 	@GetMapping("/compra/listado")
