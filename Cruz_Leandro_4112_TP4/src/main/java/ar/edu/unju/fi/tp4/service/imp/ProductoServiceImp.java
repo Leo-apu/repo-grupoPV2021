@@ -33,15 +33,17 @@ public class ProductoServiceImp implements IProductoService {
 	@Override
 	public Producto getUltimoProducto() {
 		// TODO Auto-generated method stub
-		Producto pr = productoList.get(productoList.size()-1);
-		return pr;
+		if (productoList.isEmpty()) {
+			return producto;
+			
+		}else {
+			Producto pr = productoList.get(productoList.size()-1);
+			return pr;
+		}
+		
 	}
 	
-	@Override
-	public Producto getProducto() {
-		return producto;
-	}
-
+	
 	@Override
 	public List<Producto> getAllProductos() {
 		// TODO Auto-generated method stub
