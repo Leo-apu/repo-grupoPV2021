@@ -42,8 +42,8 @@ public class CompraController {
 	public ModelAndView getComprasListPage() {
 		LOGGER.info("CONTROLLER : CompraController with / compra/listado get method");
 		LOGGER.info("METHOD : getComprasListPage()");
-		ModelAndView modelView = new ModelAndView("compras");
-		if (compraService.obtenerCompras() == null) {
+		ModelAndView modelView = new ModelAndView("listacompras");
+		if (compraService.obtenerCompras().isEmpty()) {
 			compraService.generarTablaCompra();
 		}
 		modelView.addObject("compras",compraService.obtenerCompras());
