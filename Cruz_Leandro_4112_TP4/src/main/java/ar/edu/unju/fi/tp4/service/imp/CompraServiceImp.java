@@ -21,6 +21,9 @@ public class CompraServiceImp implements ICompraService {
 	@Override
 	public void guardarCompra(Compra compra) {
 		// TODO Auto-generated method stub
+		if(compras==null) {
+			generarTablaCompra();
+		}
 		this.compras.add(compra);
 		LOGGER.info("METHOD: se agrego un obj compra a la lista -> "+compras.get(compras.size()-1));
 		
@@ -37,7 +40,7 @@ public class CompraServiceImp implements ICompraService {
 	public void generarTablaCompra() {
 		// TODO Auto-generated method stub
 		this.compras=TablaCompra.listCompras;
-		this.compras.add(new Compra(1, null, 0));
+		//this.compras.add(new Compra(1, null, 0));
 		LOGGER.info("RESULT : CREA LISTA DE CLIENTES");
 	}
 
