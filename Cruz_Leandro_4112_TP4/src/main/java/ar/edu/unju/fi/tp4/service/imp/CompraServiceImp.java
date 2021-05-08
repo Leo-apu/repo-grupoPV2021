@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 import ar.edu.unju.fi.tp4.model.Compra;
 import ar.edu.unju.fi.tp4.service.ICompraService;
 @Service
-public class CompraServiceImpl implements ICompraService {
+public class CompraServiceImp implements ICompraService {
 	private List<Compra> compras;
-	private static final Log LOGGER =LogFactory.getLog(CompraServiceImpl.class);
+	private static final Log LOGGER =LogFactory.getLog(CompraServiceImp.class);
 
 	@Override
 	public void guardarCompra(Compra compra) {
