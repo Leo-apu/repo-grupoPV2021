@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import ar.edu.unju.fi.tp4.model.Cliente;
@@ -15,6 +17,9 @@ import ar.edu.unju.fi.tp4.util.TablaCliente;
 public class ClienteServiceImp implements IClienteService{
 
 	private List<Cliente> clientes;
+	@Autowired
+	@Qualifier("clienteObj")
+	Cliente cliente;
 
 	private static final Log LOGGER = LogFactory.getLog(ClienteServiceImp.class);
 	
@@ -48,6 +53,13 @@ public class ClienteServiceImp implements IClienteService{
 		LOGGER.info("METHOD : getAllClientes()");
 		LOGGER.info("RESULT : INGRESA CLIENTES A UNA LISTA DE CLIENTES");
 		return clientes;
+	}
+
+
+	@Override
+	public Cliente getCliente() {
+		// TODO Auto-generated method stub
+		return cliente;
 	}
 
 
