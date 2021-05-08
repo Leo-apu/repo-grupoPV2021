@@ -16,9 +16,7 @@ import ar.edu.unju.fi.tp4.service.IClienteService;
 
 @Controller
 public class ClienteController {
-	
-	@Autowired
-	private Cliente cliente;
+
 	
 	@Autowired
 	@Qualifier("clienteRamImp")
@@ -31,7 +29,7 @@ public class ClienteController {
 		LOGGER.info("CONTROLLER : ClienteController with / Formulario get method");
 		LOGGER.info("METHOD : nuevoCliente()");
 		LOGGER.info("RESULT : VISUALIZA LA PAGINA nuevocliente.html");
-		model.addAttribute("cliente", cliente);
+		model.addAttribute(clienteService.getCliente());
 		
 		return "nuevocliente";
 	}

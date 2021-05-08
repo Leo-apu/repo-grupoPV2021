@@ -13,13 +13,13 @@ import ar.edu.unju.fi.tp4.model.Producto;
 import ar.edu.unju.fi.tp4.service.IProductoService;
 
 @Service
-public class ProductoServiceImpl implements IProductoService {
+public class ProductoServiceImp implements IProductoService {
 	
 	@Autowired
 	@Qualifier("unProducto")
 	Producto producto;
 
-	private static final Log LOGGER = LogFactory.getLog(ProductoServiceImpl.class);
+	private static final Log LOGGER = LogFactory.getLog(ProductoServiceImp.class);
 	
 	private List<Producto> productoList = new ArrayList<Producto>();
 	
@@ -32,9 +32,13 @@ public class ProductoServiceImpl implements IProductoService {
 
 	@Override
 	public Producto getUltimoProducto() {
-		// TODO Auto-generated method stub
-		Producto pr = productoList.get(productoList.size()-1);
-		return pr;
+		if (productoList.isEmpty()) {
+			return producto;
+			
+		}else {
+			Producto pr = productoList.get(productoList.size()-1);
+			return pr;
+		}
 	}
 	
 	@Override
