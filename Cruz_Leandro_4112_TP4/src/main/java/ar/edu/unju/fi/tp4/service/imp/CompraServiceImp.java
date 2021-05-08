@@ -4,10 +4,11 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.stereotype.Service;
 
 import ar.edu.unju.fi.tp4.model.Compra;
 import ar.edu.unju.fi.tp4.service.ICompraService;
-
+@Service
 public class CompraServiceImpl implements ICompraService {
 	private List<Compra> compras;
 	private static final Log LOGGER =LogFactory.getLog(CompraServiceImpl.class);
