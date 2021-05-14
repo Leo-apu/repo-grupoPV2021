@@ -8,36 +8,49 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.tp4.model.Compra;
 import ar.edu.unju.fi.tp4.service.ICompraService;
+import ar.edu.unju.fi.tp4.service.IProductoService;
 
 @Controller
 public class CompraController {
 	
 	@Autowired
 	private ICompraService compraService;
+	@Autowired
+	private IProductoService productoService;
 	
 	private static final Log LOGGER = LogFactory.getLog(CompraController.class);
-	
-	@GetMapping("/compra")
-	public String getCompraPage(Model model) {
-		LOGGER.info("CONTROLLER : CompraController with / Formulario get method");
-		LOGGER.info("METHOD : getCompraPage()");
-		LOGGER.info("RESULT : VISUALIZA LA PAGINA compras.html");
-		model.addAttribute(compraService.getCompra());
-		return "compra";
-	}
-	
-	@PostMapping("/compra/guardar")
-	public String getAddCompraPage(@ModelAttribute("compra") Compra unaCompra) {	
+
+	@GetMapping("/compra/guardar")
+	public String getAddCompraGuardarPage(Model model,@RequestParam(name="cantidad")String cantidad,
+			@RequestParam(name="id")String id,@RequestParam(name="total")String total,
+			@RequestParam(name="codigo")String codigo) {
+		Compra comp = new Compra();
+		comp.setCantidad(Integer.valueOf(cantidad));
+		comp.setId(Integer.valueOf(id));
+		comp.setTotal(Double.valueOf(total));
+		comp.setProducto(this.productoService.getUnProducto(codigo));
 		LOGGER.info("CONTROLLER : CompraController with /guardarCompra post method");
-		compraService.guardarCompra(unaCompra);
+		compraService.guardarCompra(comp);
+		model.addAttribute("compras",compraService.getCompra());
 		LOGGER.info("RESULT : VISUALIZA LA PAGINA resultadoCompra.html ");
 		return "resultadoCompra";
 	}
-
+	
+	@GetMapping("/compra")
+	public String getCompraFormPage(Model model) {
+		LOGGER.info("CONTROLLER : CompraController with / Formulario get method");
+		LOGGER.info("METHOD : getCompraFormPage()");
+		LOGGER.info("RESULT : VISUALIZA LA PAGINA compra.html");
+		model.addAttribute("compra",compraService.getCompra());
+		model.addAttribute("producto",productoService.getAllProductos());
+		return "compra";
+	}
+	
 	@GetMapping("/compra/listado")
 	public ModelAndView getComprasListPage() {
 		LOGGER.info("CONTROLLER : CompraController with / compra/listado get method");

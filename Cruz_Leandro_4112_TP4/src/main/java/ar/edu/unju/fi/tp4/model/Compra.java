@@ -9,7 +9,7 @@ public class Compra {
 	@Autowired
 	private Producto producto;
 	private int cantidad;
-	private double total;
+	private Double total;
 
 public Compra() {
 	// TODO Auto-generated constructor stub
@@ -82,7 +82,7 @@ public void setCantidad(int cantidad) {
 /**
  * @param total the total to set
  */
-public void setTotal(int total) {
+public void setTotal(Double total) {
 	this.total = total;
 }
 
