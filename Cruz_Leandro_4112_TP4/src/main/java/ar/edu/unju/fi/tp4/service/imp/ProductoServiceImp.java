@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import ar.edu.unju.fi.tp4.model.Producto;
 import ar.edu.unju.fi.tp4.service.IProductoService;
+import ar.edu.unju.fi.tp4.util.TablaProducto;
 
 @Service
 public class ProductoServiceImp implements IProductoService {
@@ -21,23 +22,35 @@ public class ProductoServiceImp implements IProductoService {
 
 	private static final Log LOGGER = LogFactory.getLog(ProductoServiceImp.class);
 	
-	private List<Producto> productoList = new ArrayList<Producto>();
+	//private List<Producto> productoList = new ArrayList<Producto>();
+	private List<Producto> productos;
 	
+	
+	//14-5 si la lista esta vacia se llamara a generarTabla()
 	@Override
 	public void addProducto(Producto producto) {
-        //agrego el objeto producto en la lista  de productos
-		this.productoList.add(producto);
-		LOGGER.info("METHOD: addProducto - se agrego un producto en la lista --> "+ productoList.get(productoList.size()-1));
+		/*
+		 * //agrego el objeto producto en la lista de productos
+		 * this.productoList.add(producto);
+		 * LOGGER.info("METHOD: addProducto - se agrego un producto en la lista --> "+
+		 * productoList.get(productoList.size()-1));
+		 */	
+		if (productos==null) {
+			generarTablaProducto();
+			
+		}
+		productos.add(producto);;
+		
 	}
 
 	@Override
 	public Producto getUltimoProducto() {
 
-		if (productoList.isEmpty()) {
+		if (productos.isEmpty()) {
 			return producto;
 			
 		}else {
-			Producto pr = productoList.get(productoList.size()-1);
+			Producto pr = productos.get(productos.size()-1);//productoList.get(productoList.size()-1);
 			return pr;
 		}
 
@@ -47,13 +60,47 @@ public class ProductoServiceImp implements IProductoService {
 	@Override
 	public List<Producto> getAllProductos() {
 		// TODO Auto-generated method stub
-		return this.productoList;
+		return this.productos;//this.productoList;
 	}
 
 	@Override
 	public Producto getProducto() {
 		// TODO Auto-generated method stub
 		return producto;
+	}
+	
+	
+	//14-5 Se busca un producto por codigo 
+	@Override
+	public Producto getUnProducto(int codigo) {
+		// TODO Auto-generated method stub
+		Producto prod =new Producto();
+		//for each
+		/*
+		 * for (Producto producto : this.productoList) { if
+		 * (codigo==producto.getCodigo()) { prod=producto; }
+		 * 
+		 * }
+		 */
+		for (Producto producto : this.productos) 
+		{
+			if (codigo==producto.getCodigo()){
+				prod=producto; 
+				}
+			 
+		 }
+		return prod;
+	}
+	
+	
+	//14-5 Se genera la tabla con dos productos por defecto
+	@Override
+	public void generarTablaProducto() {
+		// TODO Auto-generated method stub
+		productos=TablaProducto.ListProducto;
+		productos.add(new Producto(111,"Arroz",80.2,"Peleador",5));
+		productos.add(new Producto(112,"Yerba",100.5,"Amanda",3));
+		
 	}
 	
 
