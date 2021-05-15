@@ -33,7 +33,7 @@ public class CompraController {
 		comp.setCantidad(Integer.valueOf(cantidad));
 		comp.setId(Integer.valueOf(id));
 		comp.setTotal(Double.valueOf(total));
-		comp.setProducto(this.productoService.getUnProducto(codigo));
+		comp.setProducto(this.productoService.getUnProducto(Integer.valueOf(codigo)));
 		LOGGER.info("CONTROLLER : CompraController with /guardarCompra post method");
 		compraService.guardarCompra(comp);
 		model.addAttribute("compras",compraService.getCompra());
