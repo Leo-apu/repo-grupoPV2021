@@ -27,13 +27,13 @@ public class CompraController {
 
 	@GetMapping("/compra/guardar")
 	public String getAddCompraGuardarPage(Model model,@RequestParam(name="cantidad")String cantidad,
-			@RequestParam(name="id")String id,@RequestParam(name="total")String total,
+			@RequestParam(name="id")String id,
 			@RequestParam(name="codigo")String codigo) {
 		Compra comp = new Compra();
 		comp.setCantidad(Integer.valueOf(cantidad));
 		comp.setId(Integer.valueOf(id));
-		comp.setTotal(Double.valueOf(total));
-		comp.setProducto(this.productoService.getUnProducto(codigo));
+		comp.setProducto(this.productoService.getUnProducto(Integer.valueOf(codigo)));
+		comp.setTotal(comp.getTotal());
 		LOGGER.info("CONTROLLER : CompraController with /guardarCompra post method");
 		compraService.guardarCompra(comp);
 		model.addAttribute("compras",compraService.getCompra());

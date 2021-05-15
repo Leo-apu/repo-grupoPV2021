@@ -21,33 +21,19 @@
 				     <div class="card shadows-lg p-3 mb-5 bg-white">
 				        <div class="card-header bg-danger text-white text-center">FORMULARIO-COMPRA</div>
 				        <div class="card-body">
-				        	<form th:action="@{/compra/guardar}" th:object="${compra}" method="post">
+				        	<form th:action="@{/compra/guardar}" th:object="${compra}" method="get">
 							   <div class="form-group">
 							    <label for="id">ID </label>
 								<input required th:field="*{id}" id="id" class="form-control" type="number" name="id" placeholder="Ingrese ID"
 								>
 							   </div>
 							   <div class="form-group">
-							    <label for="producto">Producto</label>
-								
-										<div class="form-group">
-									    <label for="nombre">Nombre del Producto</label>
-										<input required id="nombre" class="form-control" type="text" name="nombre" placeholder="Ingrese el nombre"
-										th:field="*{producto.nombre}">
-									   </div>
-									   <div class="form-group">
-									    <label for="precio">Precio del Producto</label>
-										<input required id="precio" step="0.01" class="form-control" type="number" name="precio" placeholder="Ingrese el precio"
-										th:field="*{producto.precio}">
-									   </div>
-									   <div class="form-group">
-									    <label for="marca">Marca del Producto</label>
-										<input required id="marca" class="form-control" type="text" name="marca" placeholder="Ingrese la marca"
-										th:field="*{producto.marca}">
-									   </div>
-							
-							   </div>
-	
+							    <label for="codigo">Codigo</label>
+							   <select name="codigo" id="codigo" class="form-select" aria-label="Default select example">
+								  <option th:each="p: ${producto}" th:value="${p.codigo}" ><span th:text="${p.nombre}" ></span></option>
+								  
+								</select>
+								</div>
 							   <div class="form-group">
 							    <label for="cantidad">Cantidad</label>
 								<input required th:field="*{cantidad}" id="cantidad" class="form-control" type="number" name="cantidad" placeholder="Ingrese cantidad"

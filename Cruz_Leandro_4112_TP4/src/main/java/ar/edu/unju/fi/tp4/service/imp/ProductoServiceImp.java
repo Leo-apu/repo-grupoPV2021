@@ -60,6 +60,9 @@ public class ProductoServiceImp implements IProductoService {
 	@Override
 	public List<Producto> getAllProductos() {
 		// TODO Auto-generated method stub
+		if(this.productos==null) {
+			this.generarTablaProducto();
+		}
 		return this.productos;//this.productoList;
 	}
 
@@ -97,9 +100,9 @@ public class ProductoServiceImp implements IProductoService {
 	@Override
 	public void generarTablaProducto() {
 		// TODO Auto-generated method stub
-		productos=TablaProducto.ListProducto;
-		productos.add(new Producto(111,"Arroz",80.2,"Peleador",5));
-		productos.add(new Producto(112,"Yerba",100.5,"Amanda",3));
+		this.productos=TablaProducto.ListProducto;
+		this.productos.add(new Producto(111,"Arroz",80.2,"Peleador",5));
+		this.productos.add(new Producto(112,"Yerba",100.5,"Amanda",3));
 		
 	}
 	
